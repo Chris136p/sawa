@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>متجر Sawa Store ثلاثي الأبعاد</title>
+  <style>
+    /* حركة تغير الألوان بشكل مستمر وبطيء */
+    @keyframes continuousColorShift {
+      0% {
+        --light-red: #a00000cc;
+        --dark-red: #330000dd;
+        --light-green: #009933cc;
+        --dark-green: #004d0099;
+      }
+      25% {
+        --light-red: #cc2222cc;
+        --dark-red: #440000dd;
+        --light-green: #00cc44cc;
+        --dark-green: #00660099;
+      }
+      50% {
+        --light-red: #b00000cc;
+        --dark-red: #3a0000dd;
+        --light-green: #008833cc;
+        --dark-green: #003d0077;
+      }
+      75% {
+        --light-red: #cc2222cc;
+        --dark-red: #440000dd;
+        --light-green: #00cc44cc;
+        --dark-green: #00660099;
+      }
+      100% {
+        --light-red: #a00000cc;
+        --dark-red: #330000dd;
+        --light-green: #009933cc;
+        --dark-green: #004d0099;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #110000;
+      background-image:
+        radial-gradient(circle at 20% 30%, var(--dark-red, #330000cc) 0%, transparent 70%),
+        radial-gradient(circle at 80% 70%, var(--dark-green, #003300cc) 0%, transparent 70%),
+        radial-gradient(circle at 50% 50%, #220000aa 0%, #001100bb 100%);
+      color: #fff;
+      perspective: 1200px;
+      overflow-x: hidden;
+      padding: 40px 20px;
+      min-height: 100vh;
+      position: relative;
+
+      /* تدرج إضاءة خفيف من الحواف إلى الداخل مع تغير مستمر وبطيء للألوان */
+      animation: continuousColorShift 60s linear infinite;
+      box-shadow:
+        inset 0 0 150px 40px var(--dark-red, #330000cc),
+        inset 0 0 150px 80px var(--dark-green, #004d0099);
+    }
+
+    .floating-dots {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.8;
+      filter: blur(1.2px);
+      animation-timing-function: ease-in-out;
+    }
+    .dot.red {
+      background: #cc0000dd;
+      width: 18px; height: 18px;
+      animation: floatRed 7s infinite alternate;
+      box-shadow: 0 0 12px #cc0000dd;
+    }
+    .dot.green {
+      background: #00cc44dd;
+      width: 14px; height: 14px;
+      animation: floatGreen 9s infinite alternate;
+      box-shadow: 0 0 10px #00cc44dd;
+    }
+    @keyframes floatRed {
+      0% { top: 70%; left: 25%; transform: translateY(0);}
+      100% { top: 20%; left: 30%; transform: translateY(-40px);}
+    }
+    @keyframes floatGreen {
+      0% { top: 20%; left: 70%; transform: translateY(0);}
+      100% { top: 75%; left: 75%; transform: translateY(40px);}
+    }
+
+    .store-container {
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #ff4444;
+      letter-spacing: 2px;
+    }
+
+    p.description {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #bbb;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 0 10px #ff6666aa;
+    }
+
+    .red-capsules-section {
+      background: linear-gradient(135deg, var(--light-red, #4a0000cc) 0%, var(--dark-red, #330000dd) 100%);
+      padding: 30px 15px 40px 15px;
+      border-radius: 25px;
+      box-shadow: 0 0 40px #a00000cc;
+      margin-bottom: 60px;
+      transition: box-shadow 0.3s ease;
+      position: relative;
+    }
+    .red-capsules-section:hover {
+      box-shadow: 0 0 60px #ff0000dd;
+    }
+    .red-capsules-section h2 {
+      color: #ff0000;
+      text-shadow: 0 0 25px #ff2222cc;
+      margin-bottom: 30px;
+    }
+    .red-capsule-large {
+      width: 110px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 25px #a00000cc);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .green-capsules-section {
+      background: linear-gradient(135deg, var(--light-green, #004d00cc) 0%, var(--dark-green, #006600dd) 100%);
+      padding: 30px 15px 40px 15px;
+      border-radius: 25px;
+      box-shadow: 0 0 40px #00cc44cc;
+      margin-bottom: 60px;
+      transition: box-shadow 0.3s ease;
+      position: relative;
+    }
+    .green-capsules-section:hover {
+      box-shadow: 0 0 60px #00ff55dd;
+    }
+    .green-capsules-section h2 {
+      color: #00cc44;
+      text-shadow: 0 0 25px #00ff66cc;
+      margin-bottom: 30px;
+    }
+    .green-capsule-large {
+      width: 110px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 25px #00cc44cc);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .packages-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .package-card {
+      flex: 0 1 280px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 25px 20px;
+      box-sizing: border-box;
+      text-align: center;
+      transform-style: preserve-3d;
+      transition: transform 0.5s, box-shadow 0.5s, background 0.5s;
+      cursor: pointer;
+      position: relative;
+      perspective: 1500px;
+      z-index: 3;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      overflow: hidden;
+      box-shadow: 0 8px 30px 0 rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, rgba(170, 0, 0, 0.6) 0%, rgba(80, 0, 0, 0.9) 100%);
+    }
+    .red-capsules-section .package-card {
+      background: linear-gradient(135deg, var(--light-red, rgba(170, 0, 0, 0.6)) 0%, var(--dark-red, rgba(80, 0, 0, 0.9)) 100%);
+      box-shadow: 0 8px 40px 0 rgba(170, 0, 0, 0.8);
+      border: 1.5px solid #440000cc;
+    }
+    .green-capsules-section .package-card {
+      background: linear-gradient(135deg, var(--light-green, rgba(0, 153, 51, 0.8)) 0%, var(--dark-green, rgba(0, 77, 0, 0.9)) 100%);
+      box-shadow: 0 8px 40px 0 rgba(0, 204, 68, 0.8);
+      border: 1.5px solid #004d0099;
+    }
+    .package-card:hover {
+      transform: rotateY(12deg) rotateX(7deg) scale(1.05);
+      box-shadow: 0 20px 60px 0 #ff0000cc, 0 4px 30px 0 #ff000088;
+      z-index: 10;
+      background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      color: #fff;
+    }
+    .package-card::before {
+      content: '';
+      position: absolute;
+      top: -25px;
+      left: -25px;
+      width: 80%;
+      height: 50%;
+      border-radius: 30px;
+      background: linear-gradient(120deg, rgba(255,255,255,0.25), rgba(255,255,255,0.07));
+      pointer-events: none;
+      transform: rotate(-12deg);
+      z-index: 2;
+      filter: blur(2px);
+    }
+
+    .package-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px #fff);
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .package-card:hover .package-icon {
+      transform: translateZ(30px) scale(1.08);
+    }
+
+    .package-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-shadow: 0 0 12px #fff8;
+      transform-style: preserve-3d;
+    }
+
+    .package-details {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #ddd;
+      transform-style: preserve-3d;
+    }
+
+    .package-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 25px;
+      text-shadow: 0 0 12px #fff8;
+      transform-style: preserve-3d;
+    }
+    .red-capsules-section .package-price { color: #ff2222; }
+    .green-capsules-section .package-price { color: #00ff55; }
+
+    .buy-button {
+      background: linear-gradient(135deg, #ff4444, #aa0000);
+      border: none;
+      border-radius: 40px;
+      padding: 14px 35px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+      transition: background 0.3s, box-shadow 0.3s, transform 0.15s;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      margin-top: 10px;
+      user-select: none;
+    }
+    .green-capsules-section .buy-button {
+      background: linear-gradient(135deg, #009933, #004d00);
+      box-shadow: 0 8px 20px rgba(0, 204, 68, 0.7);
+    }
+    .buy-button:hover {
+      filter: brightness(1.2);
+      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.8);
+      transform: scale(1.05);
+    }
+    .buy-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.9) inset;
+      filter: brightness(0.8);
+      transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
+    }
+    .green-capsules-section .buy-button:active {
+      box-shadow: 0 5px 15px rgba(0, 204, 68, 0.9) inset;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #66ff99;
+      font-size: 1rem;
+      user-select: none;
+      text-shadow: 0 0 6px #00ff88;
+    }
+
+    @media (max-width: 900px) {
+      .packages-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .package-card {
+        width: 90%;
+        flex: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- نقاط متحركة -->
+  <div class="floating-dots" aria-hidden="true">
+    <div class="dot red" style="animation-delay: 0s;"></div>
+    <div class="dot red" style="left: 60%; animation-delay: 2s;"></div>
+    <div class="dot green" style="animation-delay: 1s;"></div>
+    <div class="dot green" style="left: 35%; animation-delay: 3s;"></div>
+  </div>
+
+  <div class="store-container" role="main" aria-label="متجر Sawa Store ثلاثي الأبعاد">
+    <h1>متجر Sawa Store</h1>
+    <p class="description">اختر من بين حزم الكبسولات الحمراء للاشتراك في خدمات VIP، أو حزم الكبسولات الخضراء لشراء عمليات البحث حسب الجنس داخل البوت.</p>
+
+    <!-- حزم الكبسولات الحمراء -->
+    <section class="red-capsules-section" aria-labelledby="red-capsules-title">
+      <img src="https://i.imgur.com/KzHOpJL.png" alt="كبسولة حمراء كبيرة" class="red-capsule-large" />
+      <h2 id="red-capsules-title">حزم الكبسولات الحمراء - اشتراكات VIP</h2>
+      <div class="packages-section">
+        <article class="package-card" tabindex="0" aria-label="اشتراك VIP أسبوعي بسعر 7.99 دولار">
+          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <h3 class="package-name">اشتراك VIP أسبوعي</h3>
+          <p class="package-details">مدة الاشتراك: أسبوع واحد</p>
+          <p class="package-price">7.99 دولار</p>
+          <button class="buy-button" aria-label="شراء اشتراك VIP أسبوعي">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="اشتراك VIP شهري بسعر 18.99 دولار">
+          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <h3 class="package-name">اشتراك VIP شهري</h3>
+          <p class="package-details">مدة الاشتراك: شهر واحد</p>
+          <p class="package-price">18.99 دولار</p>
+          <button class="buy-button" aria-label="شراء اشتراك VIP شهري">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="اشتراك VIP 3 أشهر بسعر 29.99 دولار">
+          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <h3 class="package-name">اشتراك VIP 3 أشهر</h3>
+          <p class="package-details">مدة الاشتراك: 3 أشهر</p>
+          <p class="package-price">29.99 دولار</p>
+          <button class="buy-button" aria-label="شراء اشتراك VIP 3 أشهر">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="اشتراك VIP 6 أشهر بسعر 44.99 دولار">
+          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <h3 class="package-name">اشتراك VIP 6 أشهر</h3>
+          <p class="package-details">مدة الاشتراك: 6 أشهر</p>
+          <p class="package-price">44.99 دولار</p>
+          <button class="buy-button" aria-label="شراء اشتراك VIP 6 أشهر">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="اشتراك VIP سنة كاملة بسعر 79.99 دولار">
+          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <h3 class="package-name">اشتراك VIP سنة كاملة</h3>
+          <p class="package-details">مدة الاشتراك: سنة كاملة</p>
+          <p class="package-price">79.99 دولار</p>
+          <button class="buy-button" aria-label="شراء اشتراك VIP سنة كاملة">شراء</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- حزم الكبسولات الخضراء -->
+    <section class="green-capsules-section" aria-labelledby="green-capsules-title">
+      <img src="https://i.imgur.com/y4IfgPg.png" alt="كبسولة خضراء كبيرة" class="green-capsule-large" />
+      <h2 id="green-capsules-title">حزم الكبسولات الخضراء - عمليات البحث حسب الجنس</h2>
+      <div class="packages-section">
+        <article class="package-card" tabindex="0" aria-label="حزمة 10 عمليات بحث بسعر 0.99 دولار">
+          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <h3 class="package-name">حزمة 10 عمليات بحث</h3>
+          <p class="package-details">عدد العمليات: 10</p>
+          <p class="package-price">0.99 دولار</p>
+          <button class="buy-button" aria-label="شراء حزمة 10 عمليات بحث">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="حزمة 25 عملية بحث بسعر 1.99 دولار">
+          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <h3 class="package-name">حزمة 25 عملية بحث</h3>
+          <p class="package-details">عدد العمليات: 25</p>
+          <p class="package-price">1.99 دولار</p>
+          <button class="buy-button" aria-label="شراء حزمة 25 عملية بحث">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="حزمة 50 عملية بحث بسعر 2.99 دولار">
+          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <h3 class="package-name">حزمة 50 عملية بحث</h3>
+          <p class="package-details">عدد العمليات: 50</p>
+          <p class="package-price">2.99 دولار</p>
+          <button class="buy-button" aria-label="شراء حزمة 50 عملية بحث">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="حزمة 100 عملية بحث بسعر 3.99 دولار">
+          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <h3 class="package-name">حزمة 100 عملية بحث</h3>
+          <p class="package-details">عدد العمليات: 100</p>
+          <p class="package-price">3.99 دولار</p>
+          <button class="buy-button" aria-label="شراء حزمة 100 عملية بحث">شراء</button>
+        </article>
+        <article class="package-card" tabindex="0" aria-label="حزمة 200 عملية بحث بسعر 5.99 دولار">
+          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <h3 class="package-name">حزمة 200 عملية بحث</h3>
+          <p class="package-details">عدد العمليات: 200</p>
+          <p class="package-price">5.99 دولار</p>
+          <button class="buy-button" aria-label="شراء حزمة 200 عملية بحث">شراء</button>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 متجر Sawa Store - جميع الحقوق محفوظة
+    </footer>
+  </div>
+</body>
+</html>
