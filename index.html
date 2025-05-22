@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>متجر Sawa Store ثلاثي الأبعاد</title>
   <style>
-    /* حركة تغير الألوان بشكل مستمر وبطيء */
     @keyframes continuousColorShift {
       0% {
         --light-red: #a00000cc;
@@ -53,8 +52,6 @@
       padding: 40px 20px;
       min-height: 100vh;
       position: relative;
-
-      /* تدرج إضاءة خفيف من الحواف إلى الداخل مع تغير مستمر وبطيء للألوان */
       animation: continuousColorShift 60s linear infinite;
       box-shadow:
         inset 0 0 150px 40px var(--dark-red, #330000cc),
@@ -326,7 +323,6 @@
   </style>
 </head>
 <body>
-  <!-- نقاط متحركة -->
   <div class="floating-dots" aria-hidden="true">
     <div class="dot red" style="animation-delay: 0s;"></div>
     <div class="dot red" style="left: 60%; animation-delay: 2s;"></div>
@@ -340,39 +336,39 @@
 
     <!-- حزم الكبسولات الحمراء -->
     <section class="red-capsules-section" aria-labelledby="red-capsules-title">
-      <img src="https://i.imgur.com/KzHOpJL.png" alt="كبسولة حمراء كبيرة" class="red-capsule-large" />
+      <img src="img/2.png" alt="كبسولة حمراء كبيرة" class="red-capsule-large" />
       <h2 id="red-capsules-title">حزم الكبسولات الحمراء - اشتراكات VIP</h2>
       <div class="packages-section">
         <article class="package-card" tabindex="0" aria-label="اشتراك VIP أسبوعي بسعر 7.99 دولار">
-          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <img src="img/2.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
           <h3 class="package-name">اشتراك VIP أسبوعي</h3>
           <p class="package-details">مدة الاشتراك: أسبوع واحد</p>
           <p class="package-price">7.99 دولار</p>
           <button class="buy-button" aria-label="شراء اشتراك VIP أسبوعي">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="اشتراك VIP شهري بسعر 18.99 دولار">
-          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <img src="img/2.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
           <h3 class="package-name">اشتراك VIP شهري</h3>
           <p class="package-details">مدة الاشتراك: شهر واحد</p>
           <p class="package-price">18.99 دولار</p>
           <button class="buy-button" aria-label="شراء اشتراك VIP شهري">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="اشتراك VIP 3 أشهر بسعر 29.99 دولار">
-          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <img src="img/2.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
           <h3 class="package-name">اشتراك VIP 3 أشهر</h3>
           <p class="package-details">مدة الاشتراك: 3 أشهر</p>
           <p class="package-price">29.99 دولار</p>
           <button class="buy-button" aria-label="شراء اشتراك VIP 3 أشهر">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="اشتراك VIP 6 أشهر بسعر 44.99 دولار">
-          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <img src="img/2.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
           <h3 class="package-name">اشتراك VIP 6 أشهر</h3>
           <p class="package-details">مدة الاشتراك: 6 أشهر</p>
           <p class="package-price">44.99 دولار</p>
           <button class="buy-button" aria-label="شراء اشتراك VIP 6 أشهر">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="اشتراك VIP سنة كاملة بسعر 79.99 دولار">
-          <img src="https://i.imgur.com/KzHOpJL.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
+          <img src="img/2.png" alt="أيقونة كبسولة حمراء" class="package-icon" />
           <h3 class="package-name">اشتراك VIP سنة كاملة</h3>
           <p class="package-details">مدة الاشتراك: سنة كاملة</p>
           <p class="package-price">79.99 دولار</p>
@@ -383,39 +379,39 @@
 
     <!-- حزم الكبسولات الخضراء -->
     <section class="green-capsules-section" aria-labelledby="green-capsules-title">
-      <img src="https://i.imgur.com/y4IfgPg.png" alt="كبسولة خضراء كبيرة" class="green-capsule-large" />
+      <img src="img/1.png" alt="كبسولة خضراء كبيرة" class="green-capsule-large" />
       <h2 id="green-capsules-title">حزم الكبسولات الخضراء - عمليات البحث حسب الجنس</h2>
       <div class="packages-section">
         <article class="package-card" tabindex="0" aria-label="حزمة 10 عمليات بحث بسعر 0.99 دولار">
-          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <img src="img/1.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
           <h3 class="package-name">حزمة 10 عمليات بحث</h3>
           <p class="package-details">عدد العمليات: 10</p>
           <p class="package-price">0.99 دولار</p>
           <button class="buy-button" aria-label="شراء حزمة 10 عمليات بحث">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="حزمة 25 عملية بحث بسعر 1.99 دولار">
-          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <img src="img/1.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
           <h3 class="package-name">حزمة 25 عملية بحث</h3>
           <p class="package-details">عدد العمليات: 25</p>
           <p class="package-price">1.99 دولار</p>
           <button class="buy-button" aria-label="شراء حزمة 25 عملية بحث">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="حزمة 50 عملية بحث بسعر 2.99 دولار">
-          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <img src="img/1.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
           <h3 class="package-name">حزمة 50 عملية بحث</h3>
           <p class="package-details">عدد العمليات: 50</p>
           <p class="package-price">2.99 دولار</p>
           <button class="buy-button" aria-label="شراء حزمة 50 عملية بحث">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="حزمة 100 عملية بحث بسعر 3.99 دولار">
-          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <img src="img/1.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
           <h3 class="package-name">حزمة 100 عملية بحث</h3>
           <p class="package-details">عدد العمليات: 100</p>
           <p class="package-price">3.99 دولار</p>
           <button class="buy-button" aria-label="شراء حزمة 100 عملية بحث">شراء</button>
         </article>
         <article class="package-card" tabindex="0" aria-label="حزمة 200 عملية بحث بسعر 5.99 دولار">
-          <img src="https://i.imgur.com/y4IfgPg.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
+          <img src="img/1.png" alt="أيقونة كبسولة خضراء" class="package-icon" />
           <h3 class="package-name">حزمة 200 عملية بحث</h3>
           <p class="package-details">عدد العمليات: 200</p>
           <p class="package-price">5.99 دولار</p>
